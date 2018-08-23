@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>新建调查</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header th:replace="moban::head"></header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" th:replace="moban::as"></aside>
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card ">
+                            <div class="card-header bg-info">
+                                <h4 class="card-title text-white">新建调查</h4>
+                            </div>
+                            <form action="#" class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="card-body">
+                                        <h6 class="card-subtitle">每个月我们都可以创建满意度调查。调查设置需要您选择被调查者,所带班级和所属模块。模块分为讲师调查和教务调查，不同模块调查题目不一样</h6>
+                                        <h4>请在下方录入信息。创建调查</h4>
+                                    </div>
+                                    <hr class="m-t-0 m-b-10">
+                                    <div class="card-body">
+                                            <div class="row" >
+                                                <div class="col-lg-3"></div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">被评论人</span>
+                                                        </div>
+                                                        <select class="form-control custom-select">
+                                                            <option value="">请选择</option>
+                                                            <option value="AK">讲师</option>
+                                                            <option value="HI">教务</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">选择班级</span>
+                                                    </div>
+                                                    <select class="form-control custom-select">
+                                                        <option value="">请选择</option>
+                                                        <option value="AK">讲师</option>
+                                                        <option value="HI">教务</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">选择模块</span>
+                                                    </div>
+                                                    <select class="form-control custom-select">
+                                                        <option value="">请选择</option>
+                                                        <option value="AK">讲师</option>
+                                                        <option value="HI">教务</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px">
+                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-6">
+                                                <div class="text-right">
+                                                    <button  class="btn btn-info">创建</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer text-center" th:replace="moban::foot"></footer>
+
+        </div>
+
+    </div>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/app.init.js"></script>
+    <script src="dist/js/app-style-switcher.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+</body>
+
+</html>

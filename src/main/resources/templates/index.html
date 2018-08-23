@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>合众艾特信息技术有限公司满意度评定系统</title>
+    <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../assets/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+    <link href="dist/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- 开始引入头部模版-->
+    <!-- ============================================================== -->
+    <header class="topbar" th:replace="moban::head"></header>
+
+    <!-- ============================================================== -->
+    <!-- 引入左边菜单部分-->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" th:replace="moban::as"></aside>
+
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Welcome back  -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card  bg-light no-card-border">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="m-r-10">
+                                    <img src="assets/images/users/8.jpg" alt="user" width="60" class="rounded-circle"/>
+                                </div>
+                                <div>
+                                    <h3 class="m-b-0">Welcome back!</h3>
+                                    <span>Monday, 9 March 2019</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- Sales Summery -->
+            <!-- ============================================================== -->
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>86%</h3>
+                                <h6 class="card-subtitle">教务团队满意度</h6>
+                            </div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                         style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>40%</h3>
+                                <h6 class="card-subtitle">讲师团队满意度</h6>
+                            </div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar"
+                                         style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>56%</h3>
+                                <h6 class="card-subtitle">教务最低分</h6>
+                            </div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar"
+                                         style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>26%</h3>
+                                <h6 class="card-subtitle">讲师最低分</h6>
+                            </div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-inverse" role="progressbar"
+                                         style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- place order / Exchange -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center">
+                                    <h1 class="text-white">
+                                        <i class="ti-pie-chart"></i>
+                                    </h1>
+                                </div>
+                                <div>
+                                    <h4 class="card-title">教务满意度趋势</h4>
+                                    <h6 class="text-white op-5">March 2019</h6>
+                                </div>
+
+                            </div>
+
+                            <div class="row m-t-20 align-items-center">
+                                <div class="col-4">
+                                    <h3 class="font-light text-white">50 GB</h3>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <div class="bandwidth"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-cyan text-white">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="m-r-20 align-self-center">
+                                    <h1 class="text-white">
+                                        <i class="ti-pie-chart"></i>
+                                    </h1>
+                                </div>
+                                <div>
+                                    <h4 class="card-title">讲师满意度趋势</h4>
+                                    <h6 class="text-white op-5">March 2019</h6>
+                                </div>
+
+                            </div>
+
+                            <div class="row m-t-20 align-items-center">
+                                <div class="col-4">
+                                    <h3 class="font-light text-white"></h3>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <div class="spark-count"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>本月教务满意度</h4>
+                            <div id="income2" class="m-t-30"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>本月讲师满意度</h4>
+                            <div id="income" class="m-t-30"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- project of the month -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body p-b-0">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-4">
+                                    <h2 class="card-title">
+                                        满意度得分列表
+                                    </h2>
+                                </div>
+                                <div class="col-sm-9 col-lg-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">选择身份</span>
+                                        </div>
+                                        <select class="form-control custom-select">
+                                            <option>全部</option>
+                                            <option value="AK">讲师</option>
+                                            <option value="HI">教务</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-lg-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">人员名字</span>
+                                        </div>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-lg-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">选择时间:</span>
+                                        </div>
+                                        <select class="form-control custom-select">
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                        </select>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">年</span>
+                                        </div>
+                                        <select class="form-control custom-select">
+
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+
+                                        </select>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">月</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-lg-1">
+                                    <button type="submit" class="btn btn-primary" style="width: 80%">查询</button>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                    <tr>
+                                        <th class="border-top-0">名字</th>
+                                        <th class="border-top-0">班级</th>
+                                        <th class="border-top-0">得分</th>
+                                        <th class="border-top-0" style="text-align: center" >详情</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Hanna Gover</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Daniel Kristeen</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Julian Josephs</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10">
+                                                    <img src="assets/images/users/8.jpg" alt="user"
+                                                         class="rounded-circle" width="45">
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16 font-medium">Daniel Kristeen</h4>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Elite Admin</td>
+                                        <td class="font-medium">35</td>
+                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                        Showing 1to 10 of 57 entries
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+                                <a href="#" class="page-link">上一页</a></li>
+                            <li class="paginate_button page-item active">
+                                <a href="#"  tabindex="0"  class="page-link">1</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" class="page-link">3</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" class="page-link">4</a>
+                            </li>
+                            <li class="paginate_button page-item next" id="DataTables_Table_0_next">
+                                <a href="#" class="page-link">下一页</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- Task, Feeds -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- Trade history / Exchange -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center" th:replace="moban::foot"></footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+
+
+<div class="chat-windows"></div>
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- apps -->
+<script src="dist/js/app.min.js"></script>
+<!-- Theme settings -->
+<script src="dist/js/app.init.js"></script>
+<script src="dist/js/app-style-switcher.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="assets/extra-libs/sparkline/sparkline.js"></script>
+<!--Wave Effects -->
+<script src="dist/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="dist/js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="dist/js/custom.min.js"></script>
+<!--This page JavaScript -->
+<!--c3 JavaScript -->
+<script src="assets/extra-libs/c3/d3.min.js"></script>
+<script src="assets/extra-libs/c3/c3.min.js"></script>
+<script src="dist/js/pages/dashboards/dashboard3.js"></script>
+<script src="assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+<script>
+    $("#choose").bootstrapSwitch();
+
+    $(document).ready(function() {
+
+    });
+</script>
+</body>
+
+</html>

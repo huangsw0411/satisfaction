@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.CommentMapper">
+
+    <sql id="commentBaseColumnSql">
+        comId,
+        comuuId,
+        comTime,
+        comPeople,
+        comModule,
+        comScore,
+        codPeople,
+        comClass
+    </sql>
+
+    <sql id="commentBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comId)">
+                    comId = #{map.comId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comuuId)">
+                    AND comuuId = #{map.comuuId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comTime)">
+                    AND comTime = #{map.comTime}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comPeople)">
+                    AND comPeople = #{map.comPeople}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comModule)">
+                    AND comModule = #{map.comModule}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comScore)">
+                    AND comScore = #{map.comScore}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.codPeople)">
+                    AND codPeople = #{map.codPeople}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comClass)">
+                    AND comClass = #{map.comClass}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertComment" parameterType="com.hzit.satisfaction.entity.Comment">
+        INSERT INTO comment(
+        <include refid="commentBaseColumnSql"/>
+        )VALUES(
+            #{comId},
+            #{comuuId},
+            #{comTime},
+            #{comPeople},
+            #{comModule},
+            #{comScore},
+            #{codPeople},
+            #{comClass}
+        )
+    </insert>
+
+    
+    <delete id="deleteCommentByComId" parameterType="Integer">
+        DELETE FROM comment WHERE comId = #{comId}
+    </delete>
+
+    <update id="updateComment" parameterType="com.hzit.satisfaction.entity.Comment">
+        UPDATE comment
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comuuId)">
+                comuuId = #{comuuId} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comTime)">
+                comTime = #{comTime} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comPeople)">
+                comPeople = #{comPeople} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comModule)">
+                comModule = #{comModule} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comScore)">
+                comScore = #{comScore} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(codPeople)">
+                codPeople = #{codPeople} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comClass)">
+                comClass = #{comClass} ,
+            </if>
+        </set>
+        WHERE comId = #{comId}
+    </update>
+
+    <select id="searchCommentByParams" parameterType="map" resultMap="commentMap">
+        SELECT
+        <include refid="commentBaseColumnSql"/>
+        FROM comment
+        <include refid="commentBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Comment" id="commentMap">
+        <id column="comId" property="comId"/>
+        <result column="comuuId" property="comuuId"/>
+        <result column="comTime" property="comTime"/>
+        <result column="comPeople" property="comPeople"/>
+        <result column="comModule" property="comModule"/>
+        <result column="comScore" property="comScore"/>
+        <result column="codPeople" property="codPeople"/>
+        <result column="comClass" property="comClass"/>
+    </resultMap>
+
+</mapper>

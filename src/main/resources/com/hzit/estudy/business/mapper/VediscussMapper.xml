@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.VediscussMapper">
+
+    <sql id="vediscussBaseColumnSql">
+        vdId,
+        vcUuid,
+        vcVid,
+        vdResult
+    </sql>
+
+    <sql id="vediscussBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.vdId)">
+                    vdId = #{map.vdId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.vcUuid)">
+                    AND vcUuid = #{map.vcUuid}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.vcVid)">
+                    AND vcVid = #{map.vcVid}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.vdResult)">
+                    AND vdResult = #{map.vdResult}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertVediscuss" parameterType="com.hzit.satisfaction.entity.Vediscuss">
+        INSERT INTO vediscuss(
+        <include refid="vediscussBaseColumnSql"/>
+        )VALUES(
+            #{vdId},
+            #{vcUuid},
+            #{vcVid},
+            #{vdResult}
+        )
+    </insert>
+
+    
+    <delete id="deleteVediscussByVdId" parameterType="Integer">
+        DELETE FROM vediscuss WHERE vdId = #{vdId}
+    </delete>
+
+    <update id="updateVediscuss" parameterType="com.hzit.satisfaction.entity.Vediscuss">
+        UPDATE vediscuss
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(vcUuid)">
+                vcUuid = #{vcUuid} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(vcVid)">
+                vcVid = #{vcVid} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(vdResult)">
+                vdResult = #{vdResult} ,
+            </if>
+        </set>
+        WHERE vdId = #{vdId}
+    </update>
+
+    <select id="searchVediscussByParams" parameterType="map" resultMap="vediscussMap">
+        SELECT
+        <include refid="vediscussBaseColumnSql"/>
+        FROM vediscuss
+        <include refid="vediscussBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Vediscuss" id="vediscussMap">
+        <id column="vdId" property="vdId"/>
+        <result column="vcUuid" property="vcUuid"/>
+        <result column="vcVid" property="vcVid"/>
+        <result column="vdResult" property="vdResult"/>
+    </resultMap>
+
+</mapper>

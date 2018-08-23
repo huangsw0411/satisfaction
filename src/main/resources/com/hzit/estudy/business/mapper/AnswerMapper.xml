@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.AnswerMapper">
+
+    <sql id="answerBaseColumnSql">
+        ansId,
+        ansContent,
+        ansSc,
+        proId
+    </sql>
+
+    <sql id="answerBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.ansId)">
+                    ansId = #{map.ansId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.ansContent)">
+                    AND ansContent = #{map.ansContent}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.ansSc)">
+                    AND ansSc = #{map.ansSc}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.proId)">
+                    AND proId = #{map.proId}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertAnswer" parameterType="com.hzit.satisfaction.entity.Answer">
+        INSERT INTO answer(
+        <include refid="answerBaseColumnSql"/>
+        )VALUES(
+            #{ansId},
+            #{ansContent},
+            #{ansSc},
+            #{proId}
+        )
+    </insert>
+
+    
+    <delete id="deleteAnswerByAnsId" parameterType="Integer">
+        DELETE FROM answer WHERE ansId = #{ansId}
+    </delete>
+
+    <update id="updateAnswer" parameterType="com.hzit.satisfaction.entity.Answer">
+        UPDATE answer
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(ansContent)">
+                ansContent = #{ansContent} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(ansSc)">
+                ansSc = #{ansSc} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(proId)">
+                proId = #{proId} ,
+            </if>
+        </set>
+        WHERE ansId = #{ansId}
+    </update>
+
+    <select id="searchAnswerByParams" parameterType="map" resultMap="answerMap">
+        SELECT
+        <include refid="answerBaseColumnSql"/>
+        FROM answer
+        <include refid="answerBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Answer" id="answerMap">
+        <id column="ansId" property="ansId"/>
+        <result column="ansContent" property="ansContent"/>
+        <result column="ansSc" property="ansSc"/>
+        <result column="proId" property="proId"/>
+    </resultMap>
+
+</mapper>

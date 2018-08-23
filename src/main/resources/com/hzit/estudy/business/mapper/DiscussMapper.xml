@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.DiscussMapper">
+
+    <sql id="discussBaseColumnSql">
+        disId,
+        comUuid,
+        proId,
+        disResult,
+        disScore
+    </sql>
+
+    <sql id="discussBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.disId)">
+                    disId = #{map.disId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comUuid)">
+                    AND comUuid = #{map.comUuid}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.proId)">
+                    AND proId = #{map.proId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.disResult)">
+                    AND disResult = #{map.disResult}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.disScore)">
+                    AND disScore = #{map.disScore}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertDiscuss" parameterType="com.hzit.satisfaction.entity.Discuss">
+        INSERT INTO discuss(
+        <include refid="discussBaseColumnSql"/>
+        )VALUES(
+            #{disId},
+            #{comUuid},
+            #{proId},
+            #{disResult},
+            #{disScore}
+        )
+    </insert>
+
+    
+    <delete id="deleteDiscussByDisId" parameterType="Integer">
+        DELETE FROM discuss WHERE disId = #{disId}
+    </delete>
+
+    <update id="updateDiscuss" parameterType="com.hzit.satisfaction.entity.Discuss">
+        UPDATE discuss
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(comUuid)">
+                comUuid = #{comUuid} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(proId)">
+                proId = #{proId} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(disResult)">
+                disResult = #{disResult} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(disScore)">
+                disScore = #{disScore} ,
+            </if>
+        </set>
+        WHERE disId = #{disId}
+    </update>
+
+    <select id="searchDiscussByParams" parameterType="map" resultMap="discussMap">
+        SELECT
+        <include refid="discussBaseColumnSql"/>
+        FROM discuss
+        <include refid="discussBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Discuss" id="discussMap">
+        <id column="disId" property="disId"/>
+        <result column="comUuid" property="comUuid"/>
+        <result column="proId" property="proId"/>
+        <result column="disResult" property="disResult"/>
+        <result column="disScore" property="disScore"/>
+    </resultMap>
+
+</mapper>

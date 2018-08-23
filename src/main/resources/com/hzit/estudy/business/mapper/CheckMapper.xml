@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.CheckMapper">
+
+    <sql id="checkBaseColumnSql">
+        checkId,
+        checkClass,
+        checkTeacher,
+        checkPwd,
+        createTime,
+        checkModule
+    </sql>
+
+    <sql id="checkBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.checkId)">
+                    checkId = #{map.checkId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.checkClass)">
+                    AND checkClass = #{map.checkClass}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.checkTeacher)">
+                    AND checkTeacher = #{map.checkTeacher}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.checkPwd)">
+                    AND checkPwd = #{map.checkPwd}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.createTime)">
+                    AND createTime = #{map.createTime}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.checkModule)">
+                    AND checkModule = #{map.checkModule}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertCheck" parameterType="com.hzit.satisfaction.entity.Check">
+        INSERT INTO check(
+        <include refid="checkBaseColumnSql"/>
+        )VALUES(
+            #{checkId},
+            #{checkClass},
+            #{checkTeacher},
+            #{checkPwd},
+            #{createTime},
+            #{checkModule}
+        )
+    </insert>
+
+    
+    <delete id="deleteCheckByCheckId" parameterType="Integer">
+        DELETE FROM check WHERE checkId = #{checkId}
+    </delete>
+
+    <update id="updateCheck" parameterType="com.hzit.satisfaction.entity.Check">
+        UPDATE check
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(checkClass)">
+                checkClass = #{checkClass} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(checkTeacher)">
+                checkTeacher = #{checkTeacher} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(checkPwd)">
+                checkPwd = #{checkPwd} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(createTime)">
+                createTime = #{createTime} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(checkModule)">
+                checkModule = #{checkModule} ,
+            </if>
+        </set>
+        WHERE checkId = #{checkId}
+    </update>
+
+    <select id="searchCheckByParams" parameterType="map" resultMap="checkMap">
+        SELECT
+        <include refid="checkBaseColumnSql"/>
+        FROM check
+        <include refid="checkBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Check" id="checkMap">
+        <id column="checkId" property="checkId"/>
+        <result column="checkClass" property="checkClass"/>
+        <result column="checkTeacher" property="checkTeacher"/>
+        <result column="checkPwd" property="checkPwd"/>
+        <result column="createTime" property="createTime"/>
+        <result column="checkModule" property="checkModule"/>
+    </resultMap>
+
+</mapper>

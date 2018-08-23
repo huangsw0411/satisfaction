@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hzit.satisfaction.mapper.VegetableMapper">
+
+    <sql id="vegetableBaseColumnSql">
+        veId,
+        veType,
+        veName,
+        veParent,
+        veLevel
+    </sql>
+
+    <sql id="vegetableBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.veId)">
+                    veId = #{map.veId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.veType)">
+                    AND veType = #{map.veType}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.veName)">
+                    AND veName = #{map.veName}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.veParent)">
+                    AND veParent = #{map.veParent}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.veLevel)">
+                    AND veLevel = #{map.veLevel}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertVegetable" parameterType="com.hzit.satisfaction.entity.Vegetable">
+        INSERT INTO vegetable(
+        <include refid="vegetableBaseColumnSql"/>
+        )VALUES(
+            #{veId},
+            #{veType},
+            #{veName},
+            #{veParent},
+            #{veLevel}
+        )
+    </insert>
+
+    
+    <delete id="deleteVegetableByVeId" parameterType="Integer">
+        DELETE FROM vegetable WHERE veId = #{veId}
+    </delete>
+
+    <update id="updateVegetable" parameterType="com.hzit.satisfaction.entity.Vegetable">
+        UPDATE vegetable
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(veType)">
+                veType = #{veType} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(veName)">
+                veName = #{veName} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(veParent)">
+                veParent = #{veParent} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(veLevel)">
+                veLevel = #{veLevel} ,
+            </if>
+        </set>
+        WHERE veId = #{veId}
+    </update>
+
+    <select id="searchVegetableByParams" parameterType="map" resultMap="vegetableMap">
+        SELECT
+        <include refid="vegetableBaseColumnSql"/>
+        FROM vegetable
+        <include refid="vegetableBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.hzit.satisfaction.entity.Vegetable" id="vegetableMap">
+        <id column="veId" property="veId"/>
+        <result column="veType" property="veType"/>
+        <result column="veName" property="veName"/>
+        <result column="veParent" property="veParent"/>
+        <result column="veLevel" property="veLevel"/>
+    </resultMap>
+
+</mapper>
