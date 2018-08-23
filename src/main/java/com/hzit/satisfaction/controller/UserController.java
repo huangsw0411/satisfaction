@@ -13,10 +13,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/")
-    public String toindex(){
-        return "index";
-    }
 
     @RequestMapping("dologin")
     @ResponseBody

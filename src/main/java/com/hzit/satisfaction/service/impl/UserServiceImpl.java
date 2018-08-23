@@ -19,5 +19,6 @@ public class UserServiceImpl implements UserService {
         Map map= Tools.convertBeanToMap(user);
         List<User> list= userMapper.searchUserByParams(map);
         return list.size()==1?list.get(0):null;
+
     }
 }
