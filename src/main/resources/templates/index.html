@@ -150,14 +150,14 @@
                                 </div>
                                 <div>
                                     <h4 class="card-title">教务满意度趋势</h4>
-                                    <h6 class="text-white op-5">March 2019</h6>
+                                    <h6 class="text-white op-5">2018</h6>
                                 </div>
 
                             </div>
 
                             <div class="row m-t-20 align-items-center">
                                 <div class="col-4">
-                                    <h3 class="font-light text-white">50 GB</h3>
+                                    <h3 class="font-light text-white"></h3>
                                 </div>
                                 <div class="col-8 text-right">
                                     <div class="bandwidth"></div>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div>
                                     <h4 class="card-title">讲师满意度趋势</h4>
-                                    <h6 class="text-white op-5">March 2019</h6>
+                                    <h6 class="text-white op-5">2018</h6>
                                 </div>
 
                             </div>
@@ -191,19 +191,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h4>本月教务满意度</h4>
-                            <div id="income2" class="m-t-30"></div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4>本月讲师满意度</h4>
+                            <h4>本月员工满意度</h4>
                             <div id="income" class="m-t-30"></div>
                         </div>
                     </div>
@@ -503,12 +494,38 @@
 <script src="assets/extra-libs/c3/d3.min.js"></script>
 <script src="assets/extra-libs/c3/c3.min.js"></script>
 <script src="dist/js/pages/dashboards/dashboard3.js"></script>
-<script src="assets/libs/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
 <script>
-    $("#choose").bootstrapSwitch();
-
     $(document).ready(function() {
+        $.post("searchallavg",{typename:"教员"},function(data){
 
+            $('.spark-count').sparkline(
+                    data,
+                    {
+                        type: 'line',
+                        width: '100%',
+                        height: '70',
+                        barWidth: '2',
+                        resize: true,
+                        fillColor: 'transparent',
+                        lineColor: 'rgba(255, 255, 255, 0.6)'
+                    }
+            );
+        });
+        $.post("searchallavg",{typename:"教务"},function(data){
+            $('.bandwidth').sparkline(
+                    data,
+                    {
+                        type: 'bar',
+                        width: '100%',
+                        height: '70',
+                        barWidth: '2',
+                        resize: true,
+                        barSpacing: '6',
+                        barColor: 'rgba(255, 255, 255, 0.3)'
+                    }
+            );
+        })
     });
 </script>
 </body>

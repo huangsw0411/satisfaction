@@ -111,4 +111,8 @@
         <result column="comClass" property="comClass"/>
     </resultMap>
 
+    <select id="searchAllAvg" resultType="java.lang.Double">
+        SELECT FORMAT(AVG(comScore),1) FROM `comment` WHERE comModule=#{typename} GROUP BY DATE_FORMAT(comTime,'%Y-%m') ORDER BY comTime
+    </select>
+
 </mapper>

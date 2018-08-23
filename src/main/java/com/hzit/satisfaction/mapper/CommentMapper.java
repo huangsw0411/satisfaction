@@ -20,4 +20,9 @@ public interface CommentMapper {
 
 	List<Comment> searchCommentByParams(@Param("map") Map<String, String> map);
 
+
+	List<Double> searchAllAvg(String  typename);
+
+
+
 } 
