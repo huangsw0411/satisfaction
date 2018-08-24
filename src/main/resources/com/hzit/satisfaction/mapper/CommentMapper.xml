@@ -111,8 +111,35 @@
         <result column="comClass" property="comClass"/>
     </resultMap>
 
-    <select id="searchAllAvg" resultType="java.lang.Double">
-        SELECT FORMAT(AVG(comScore),1) FROM `comment` WHERE comModule=#{typename} GROUP BY DATE_FORMAT(comTime,'%Y-%m') ORDER BY comTime
+    <select id="searchAllAvg" resultType="java.util.HashMap">
+      SELECT DATE_FORMAT(comTime,'%Y-%c') t,commodule,AVG(comscore) avgscore FROM `comment` GROUP BY commodule,DATE_FORMAT(comTime,'%Y-%c')
+      ORDER BY  comTime
     </select>
+    
+    <select id="searchAvgByMonth" resultType="java.util.HashMap">
+      SELECT codPeople,AVG(comScore) score,count(0) c FROM `comment` WHERE DATE_FORMAT(comTime,'%Y-%c')=#{time} GROUP BY codPeople
+    </select>
+
+    <select id="searchAvgByYear" resultType="java.util.HashMap">
+    SELECT comModule,ROUND(AVG(comscore),2) avgscore,count(0) c FROM `comment` WHERE DATE_FORMAT(comTime,'%Y')=DATE_FORMAT(NOW(),'%Y') GROUP BY comModule
+    </select>
+
+    <select id="searchTeacherList" parameterType="map" resultType="com.hzit.satisfaction.vo.SimpleCommentVo">
+        SELECT codPeople,comClass,ROUND(AVG(comScore),2) comScore,comModule,DATE_FORMAT(comTime,'%Y-%c') comTime FROM `comment`
+      <where>
+          <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.comTime)">
+              AND DATE_FORMAT(comTime,'%Y-%c')=#{map.comTime}
+          </if>
+          <if test="map.teachername!=null">
+              AND codPeople like CONCAT('%',#{map.teachername},'%')
+          </if>
+          <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.teachername)">
+              AND comModule = #{map.comModule}
+          </if>
+      </where>
+      GROUP BY codPeople,comClass,DATE_FORMAT(comTime,'%Y-%c'),comModule
+        ORDER BY comTime DESC
+    </select>
+
 
 </mapper>

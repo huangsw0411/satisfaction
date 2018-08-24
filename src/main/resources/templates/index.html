@@ -26,18 +26,15 @@
     <aside class="left-sidebar" th:replace="moban::as"></aside>
 
     <!-- ============================================================== -->
-    <!-- Page wrapper  -->
+    <!-- 页面主题部分  -->
     <!-- ============================================================== -->
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
             <!-- ============================================================== -->
-            <!-- Welcome back  -->
+            <!-- 页面上方提示部分  -->
             <!-- ============================================================== -->
             <div class="row">
                 <div class="col-lg-12">
@@ -57,114 +54,69 @@
                 </div>
             </div>
             <!-- ============================================================== -->
-            <!-- Sales Summery -->
+            <!-- 图表区域 -->
             <!-- ============================================================== -->
             <div class="card-group">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <h3>86%</h3>
-                                <h6 class="card-subtitle">教务团队满意度</h6>
+                                <h3><th:block th:text="${masterscore}"></th:block>%</h3>
+                                <h6 class="card-subtitle"><th:block th:text="${#dates.year(date)}"></th:block>年教务团队满意度</h6>
                             </div>
                             <div class="col-12">
                                 <div class="progress">
                                     <div class="progress-bar bg-success" role="progressbar"
-                                         style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         style="width:85%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
                                          aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
+
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <h3>40%</h3>
-                                <h6 class="card-subtitle">讲师团队满意度</h6>
+                                <h3><th:block th:text="${teacherscore}"></th:block>%</h3>
+                                <h6 class="card-subtitle"><th:block th:text="${#dates.year(date)}"></th:block>讲师团队满意度</h6>
                             </div>
                             <div class="col-12">
                                 <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar"
-                                         style="width: 40%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                    <div class="progress-bar bg-info" role="progressbar" th:style="'width:'+${teacherscore}+'%'"
+                                         aria-valuenow="25" aria-valuemin="0"
                                          aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
+
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <h3>56%</h3>
-                                <h6 class="card-subtitle">教务最低分</h6>
+                                <h3><th:block th:text="${total}"></th:block></h3>
+                                <h6 class="card-subtitle">参与投票总次数</h6>
                             </div>
                             <div class="col-12">
                                 <div class="progress">
                                     <div class="progress-bar bg-danger" role="progressbar"
-                                         style="width: 56%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
+                                         style="width: 100%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
                                          aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <h3>26%</h3>
-                                <h6 class="card-subtitle">讲师最低分</h6>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-inverse" role="progressbar"
-                                         style="width: 26%; height: 6px;" aria-valuenow="25" aria-valuemin="0"
-                                         aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!-- ============================================================== -->
             <!-- place order / Exchange -->
             <!-- ============================================================== -->
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card bg-primary text-white">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="m-r-20 align-self-center">
-                                    <h1 class="text-white">
-                                        <i class="ti-pie-chart"></i>
-                                    </h1>
-                                </div>
-                                <div>
-                                    <h4 class="card-title">教务满意度趋势</h4>
-                                    <h6 class="text-white op-5">2018</h6>
-                                </div>
-
-                            </div>
-
-                            <div class="row m-t-20 align-items-center">
-                                <div class="col-4">
-                                    <h3 class="font-light text-white"></h3>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <div class="bandwidth"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="card bg-cyan text-white">
                         <div class="card-body">
                             <div class="d-flex">
@@ -174,28 +126,37 @@
                                     </h1>
                                 </div>
                                 <div>
-                                    <h4 class="card-title">讲师满意度趋势</h4>
-                                    <h6 class="text-white op-5">2018</h6>
+                                    <h4 class="card-title">满意度趋势对比</h4>
                                 </div>
-
                             </div>
-
                             <div class="row m-t-20 align-items-center">
-                                <div class="col-4">
-                                    <h3 class="font-light text-white"></h3>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <div class="spark-count"></div>
+                                <div class="col-12 text-right">
+                                    <div class="spark-count" style="height:275px" id="chart2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h4>本月员工满意度</h4>
-                            <div id="income" class="m-t-30"></div>
+                            <h4>
+                                <div class="input-group" style="width:360px;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">查看</span>
+                                    </div>
+                                    <select class="form-control custom-select" id="selectyear">
+                                        <option th:value="${year}" th:each="year : ${#numbers.sequence(2017,2027)}" th:selected="${year}==${#dates.year(date)}"><th:block th:text="${year}"></th:block>年</option>
+                                    </select>
+                                    <select class="form-control custom-select" id="selectmonth">
+                                        <option th:value="${month}" th:each="month : ${#numbers.sequence(1,12)}" th:selected="${month}==${#dates.month(date)}"><th:block th:text="${month}"></th:block>月</option>
+                                    </select>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">讲师教务满意度</span>
+                                </div>
+                            </div></h4>
+                            <div id="income" class="m-t-30" style="width: 100%;height:285px"></div>
                         </div>
                     </div>
 
@@ -241,28 +202,15 @@
                                             <span class="input-group-text">选择时间:</span>
                                         </div>
                                         <select class="form-control custom-select">
-                                            <option value="2016">2016</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2021">2021</option>
+                                            <option value="2021" th:each="y:${#numbers.sequence(2017,2025)}" th:value="${y}"><th:block th:text="${y}"></th:block></option>
                                         </select>
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">年</span>
                                         </div>
                                         <select class="form-control custom-select">
-
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
+                                            <option value="5" th:each="m:${#numbers.sequence(1,12)}" th:value="${m}"><th:block th:text="${m}"></th:block>月</option>
 
                                         </select>
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">月</span>
-                                        </div>
 
                                     </div>
                                 </div>
@@ -275,129 +223,29 @@
                                 <table class="table v-middle">
                                     <thead>
                                     <tr>
-                                        <th class="border-top-0">名字</th>
+                                        <th class="border-top-0">被评论人</th>
                                         <th class="border-top-0">班级</th>
                                         <th class="border-top-0">得分</th>
+                                        <th class="border-top-0">时间</th>
                                         <th class="border-top-0" style="text-align: center" >详情</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr th:each="p:${commentdata.content}">
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Hanna Gover</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Daniel Kristeen</h4>
 
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
                                                 <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Julian Josephs</h4>
-
+                                                    <h4 class="m-b-0 font-16" th:text="${p.codPeople}"></h4>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
+                                        <td th:text="${p.comClass}">Elite Admin</td>
+                                        <td class="font-medium" th:text="${p.comScore}" >35</td>
+                                        <td class="font-medium" th:text="${p.comTime}" >35</td>
 
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Jan Petrovic</h4>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
-                                        <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10">
-                                                    <img src="assets/images/users/8.jpg" alt="user"
-                                                         class="rounded-circle" width="45">
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16 font-medium">Daniel Kristeen</h4>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Elite Admin</td>
-                                        <td class="font-medium">35</td>
                                         <td align="center"> <button type="button" class="btn waves-effect waves-light btn-info">查看详情</button></td>
                                     </tr>
                                     </tbody>
@@ -491,42 +339,187 @@
 <script src="dist/js/custom.min.js"></script>
 <!--This page JavaScript -->
 <!--c3 JavaScript -->
+<script src="assets/libs/echarts/echarts.min.js"></script>
 <script src="assets/extra-libs/c3/d3.min.js"></script>
 <script src="assets/extra-libs/c3/c3.min.js"></script>
-<script src="dist/js/pages/dashboards/dashboard3.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $.post("searchallavg",{typename:"教员"},function(data){
+var myChart,char2;
+function resize() {
+        setTimeout(function() {
+            console.log("1111111111");
+            // Resize chart
+            myChart.resize();
+        }, 200);
+ }
 
-            $('.spark-count').sparkline(
-                    data,
-                    {
-                        type: 'line',
-                        width: '100%',
-                        height: '70',
-                        barWidth: '2',
-                        resize: true,
-                        fillColor: 'transparent',
-                        lineColor: 'rgba(255, 255, 255, 0.6)'
-                    }
-            );
-        });
-        $.post("searchallavg",{typename:"教务"},function(data){
-            $('.bandwidth').sparkline(
-                    data,
-                    {
-                        type: 'bar',
-                        width: '100%',
-                        height: '70',
-                        barWidth: '2',
-                        resize: true,
-                        barSpacing: '6',
-                        barColor: 'rgba(255, 255, 255, 0.3)'
-                    }
-            );
+ function loadTeacherChart(){
+     $.post("searchallavg",function(data){
+         var a=new Array();
+         a[0]=new Array(); //教员
+         a[1]=new Array();  //教务
+         a[2]=new Array(); //时间
+         for(var i=0;i<data.length;i++){
+             if(data[i].commodule=='教员'){
+                 a[2].push(data[i].t);
+                 a[0].push(data[i].avgscore);
+             }else if(data[i].commodule=="教务"){
+                 a[1].push(data[i].avgscore);
+             }
+         }
+         var char2 = echarts.init(document.getElementById('chart2'));
+           var  option = {
+                 tooltip: {
+                     trigger: 'axis'
+                 },
+               legend: {
+                   data:['讲师','教务']
+               },
+                 grid: {
+                     left: -1,
+                     right: 0,
+                     bottom: 0,
+                     top:0,
+                     containLabel: false
+                 },
+                 xAxis: {
+                     type: 'category',
+                     boundaryGap: false,
+                     data:a[2],
+                     splitLine:{
+                         show:false
+                     }
+                 },
+                 yAxis: {
+                     type: 'value',
+                     splitLine:{
+                         show:false
+                     },
+                     max: 100,
+                     min: 80,
+                 },
+                 series: [
+                     {
+                         name:'讲师',
+                         type:'line',
+                         stack: '讲师',
+                         data:a[0]
+                     },
+                     {
+                         name:'教务',
+                         type:'line',
+                         stack: '教务',
+                         data:a[1]
+                     }
+                 ]
+             };
+         char2.setOption(option);
+
+     });
+     $.post("searchallavg",{typename:"教务"},function(data){
+         $('.bandwidth').sparkline(
+             data,
+             {
+                 type: 'bar',
+                 width: '100%',
+                 height: '70',
+                 barWidth: '2',
+                 resize: true,
+                 barSpacing: '6',
+                 barColor: 'rgba(255, 255, 255, 0.3)'
+             }
+         );
+     })
+ }
+ function loadAvgChart(v_time) {
+     $.post("searchAvgByMonth",{time:v_time},function(data){
+         var seriesdata=new Array();
+         var xAxisData=new Array();
+         var countdata=new Array();
+         for(var i=0;i<data.length;i++){
+             seriesdata.push(data[i].score);
+             xAxisData.push(data[i].codPeople);
+             countdata.push(data[i].c);
+         }
+         myChart = echarts.init(document.getElementById('income'));
+         // 指定图表的配置项和数据
+         var option = {
+             color:['#4798e8','#ffbc34', '#4798e8', '#AABBCC'],
+             grid: {
+                 left: '1%',
+                 right: 50,
+                 top: 50,
+                 bottom: '3%',
+                 containLabel: true
+             },
+             tooltip : {
+                 trigger: 'axis'
+             },
+
+             xAxis: {
+
+                 data: xAxisData
+             },
+             yAxis: [
+         {
+             type: 'value',
+             scale: true,
+             name: '满意度得分',
+             max: 100,
+             min: 0,
+             boundaryGap: [0.2, 0.2]
+         },
+         {
+             type: 'value',
+             scale: true,
+             name: '参与人数',
+             max: 40,
+             min: 0,
+             boundaryGap: [0.2, 0.2]
+         }
+             ],
+             series: [{
+                 name: '满意度得分',
+                 type: 'bar',
+                 data: seriesdata,
+                 markPoint : {
+                     data : [
+                         {type : 'max', name: 'Max'},
+                         {type : 'min', name: 'Min'}
+                     ]
+                 },
+                 markLine : {
+                     data : [
+                         {type : 'average', name: 'Average'}
+                     ]
+                 }
+             }, {
+                     name:'参与人数',
+                     type:'line',
+                     data:countdata
+                 }]
+         };
+         // 使用刚指定的配置项和数据显示图表。
+         myChart.setOption(option);
+     })
+
+ }
+
+
+    $(document).ready(function() {
+        $(window).on('resize', resize);
+        $(".sidebartoggler").on('click', resize);
+        var t=new Date();
+        loadAvgChart(t.getFullYear()+"-"+(t.getMonth()+1));
+        loadTeacherChart();
+
+        $("#selectmonth").change(function(){
+            loadAvgChart($("#selectyear").val()+"-"+$(this).val());
         })
     });
+
+
+
 </script>
 </body>
 

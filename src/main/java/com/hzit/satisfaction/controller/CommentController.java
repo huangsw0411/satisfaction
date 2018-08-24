@@ -16,8 +16,17 @@ public class CommentController {
 
     @RequestMapping("searchallavg")
     @ResponseBody
-    public Object dologin(String typename)
+    public Object dologin()
     {
-        return commentService.searchAllAvg(typename);
+        return commentService.searchAllAvg();
     }
+
+    @RequestMapping("searchAvgByMonth")
+    @ResponseBody
+    public Object searchAvgByMonth(String time)
+    {
+        return commentService.searchAvgByMonth(time);
+    }
+
+
 }

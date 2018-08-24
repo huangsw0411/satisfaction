@@ -61,47 +61,5 @@ $(function() {
   // ==============================================================
   // Sales income
   // ==============================================================
-  var chart = c3.generate({
-    bindto: '#income',
-    data: {
-      columns: [
-        ['Growth Income', 250, 200, 100, 250, 300],
-        ['Net Income', 190, 100, 140, 200, 190]
-      ],
-      type: 'bar'
-    },
-    bar: {
-      space: 0.2,
-      // or
-      width: 15 // this makes bar width 100px
-    },
-    axis: {
-      y: {
-        tick: {
-          count: 4,
 
-          outer: false
-        }
-      }
-    },
-    legend: {
-      hide: true
-      //or hide: 'data1'
-      //or hide: ['data1', 'data2']
-    },
-    grid: {
-      x: {
-        show: false
-      },
-      y: {
-        show: true
-      }
-    },
-    size: {
-      height: 300
-    },
-    color: {
-      pattern: ['#4798e8', '#01c0c8']
-    }
-  });
 });

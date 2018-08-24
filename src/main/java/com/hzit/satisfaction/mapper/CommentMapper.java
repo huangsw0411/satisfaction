@@ -3,6 +3,7 @@ package com.hzit.satisfaction.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.hzit.satisfaction.vo.SimpleCommentVo;
 import org.apache.ibatis.annotations.Param;
 import com.hzit.satisfaction.entity.Comment;
 import com.fc.platform.commons.page.Page;
@@ -21,7 +22,13 @@ public interface CommentMapper {
 	List<Comment> searchCommentByParams(@Param("map") Map<String, String> map);
 
 
-	List<Double> searchAllAvg(String  typename);
+	List<Map> searchAllAvg();
+
+	List<Map> searchAvgByYear();
+
+	List<Map> searchAvgByMonth(String time);
+
+	Page<SimpleCommentVo> searchTeacherList(@Param("map") Map map,Pageable pageable);
 
 
 

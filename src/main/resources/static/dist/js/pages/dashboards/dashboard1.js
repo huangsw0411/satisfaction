@@ -114,10 +114,6 @@ $(function() {
         top: 15,
         left: -25
       },
-      axisX: {
-        showLabel: true,
-        showGrid: false
-      },
       axisY: {
         showLabel: false,
         showGrid: false
